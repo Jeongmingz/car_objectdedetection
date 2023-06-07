@@ -20,6 +20,7 @@ print(model.predict("your_image.jpg", confidence=40, overlap=30).json())
 
 # visualize your prediction
 # model.predict("your_image.jpg", confidence=40, overlap=30).save("prediction.jpg")
+```
 
 
 ## 1. base_img_coordinate.py
