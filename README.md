@@ -102,3 +102,55 @@ else:
     with open('coordinate/img_labeling_list.json', 'w') as file:
         json.dump(base_img_label, file)
 ```
+
+## 2. api.py
+``` python
+from roboflow import Roboflow
+import json
+import numpy as np
+
+# Roboflow에서 발행한 api_key로 접근한다.
+rf = Roboflow(api_key="CFD5OGXqiYxYtTQoEBGo")
+project = rf.workspace().project("car-models-08rnv")
+# 현재 car model의 버전이 4버전까지 만들어져 있다.
+model = project.version(4).model
+
+# 이미지를 Object Detection을 한 Data값을 Json 형태로 리턴한다.
+data = model.predict("imgs/test.png", confidence=40, overlap=30).json()
+# data => x, y, class, image_path ...
+print(data)
+
+# 이미지를 Object Detection을 한 결과를 jpg 파일로 리턴한다.
+model.predict("imgs/test.png", confidence=40, overlap=30).save("prediction.jpg")
+
+# data를 파일에 dump 시킨다.
+with open('data/data.json', 'w') as file:
+	json.dump(data, file)
+
+# base_img_coordinate.py 파일에서 생성한 Base 좌표값 리스트를 들고 온다.
+with open('coordinate/img_labeling_list.json', 'r') as file:
+	coordinate = json.load(file)
+
+# 총 23개의 주차자리에 차량이 탐지되었는지 확인하기 위한 0으로 구성된 ndarray 생성
+is_parked = np.zeros(24, dtype="int")
+
+# data에 있는 x, y좌표를 얻어오기 위한 dict 접근
+for i, datas in enumerate(data.get("predictions")):
+    # 객체의 x 좌표값
+	x_coordinate = datas.get('x')
+    # 객체의 ㅛ 좌표값
+	y_coordinate = datas.get('y')
+    
+    # Base 좌표값 불러오기
+	for i, coordinates in enumerate(coordinate):
+		x_list, y_list = coordinates.get('x'), coordinates.get('y')
+
+		if x_list[0] <= x_coordinate <= x_list[1]:
+			if y_list[0] <= y_coordinate <= y_list[1]:
+				is_parked[coordinates.get('id')] = True
+
+print(is_parked)
+dict_ = {"parkingInfo": is_parked.tolist()}
+with open('result/result.json', 'w') as file:
+	json.dump(dict_, file)
+```
