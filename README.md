@@ -144,7 +144,7 @@ for i, datas in enumerate(data.get("predictions")):
     # Base 좌표값 불러오기
 	for i, coordinates in enumerate(coordinate):
 		x_list, y_list = coordinates.get('x'), coordinates.get('y')
-
+		# Data의 x, y좌표가 존재하는 공간의 id값에 해당하는 값을 True(1)로 변경
 		if x_list[0] <= x_coordinate <= x_list[1]:
 			if y_list[0] <= y_coordinate <= y_list[1]:
 				is_parked[coordinates.get('id')] = True
