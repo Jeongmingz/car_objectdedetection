@@ -1,35 +1,32 @@
-import picamera, json, cv2
+import boto3, json, cv2
 from roboflow import Roboflow
 import numpy as np
 from time import sleep
 
-# 카메라 객체 생성
-camera = picamera.PiCamera()
-
 # 변수 선언
+
 file_path = 'result/imgs/origin.jpg'
 save_path = 'result/imgs/warpping.jpg'
 w = 640
 h = 480
 is_parked = np.zeros(24, dtype="int")
 
-
-# 카메라 설정
-
-camera.resolution = (w, h)  # 해상도 설정
-camera.rotation = 180  # 카메라 회전 설정
-
 # Car Object Detaction Model init - api.py
 rf = Roboflow(api_key="CFD5OGXqiYxYtTQoEBGo")
 project = rf.workspace().project("car-models-08rnv")
 model = project.version(4).model
 
+# s3 bucket make client
+client = boto3.client('s3',
+                      aws_access_key_id=AWS_ACCESS_KEY_ID,
+                      aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+                      region_name=AWS_DEFAULT_REGION
+                      )
+
 # 이미지 캡처
 while 1:
     try:
-        # camera img save
-        camera.capture(file_path)
-        sleep(1)
+        # img request to s3 bucket
 
         # img warpping - houghline
         img = cv2.imread(file_path)
