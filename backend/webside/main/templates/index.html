@@ -1,0 +1,274 @@
+{% extends 'header.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block 'content' %}
+<body>
+
+	<header data-include="./header.html"></header>
+	
+	<section class="landing-intro landing-bg pt-5 pt-lg-6 pb-5 pb-lg-7"> <!--제목 들어가는 곳-->
+		<div class="landing-intro-content container">
+			<div class="row align-items-center">
+				<div class="col-10 mx-auto">
+					<h1 class="my-4"><strong>DAELIM PAR KING</strong> </h1>
+
+					
+				</div>
+				<div class="col-10 row mx-auto">
+					<p class="col-6 text-lg"><i class="fa-solid fa-camera pe-2 text-danger"></i>라즈베리파이 카메라 모듈 V2를 통해 주차장 영상을 실시간으로 촬영합니다.</p>
+					<p class="col-6 text-lg"><i class="fa-solid fa-check-circle pe-2 text-danger"></i></p>
+					<p class="col-6 text-lg"><i class="fa-solid fa-robot pe-2 text-danger"></i>개인 모형 자동차 이미지 데이터로 학습한 AI 모델을 사용했습니다.</p>
+					<p class="col-6 text-lg"><i class="fa-solid fa-photo-film pe-2 text-danger"></i>이미지 처리 기법으로 이미지 기울기, 왜곡, 방향, 크기 등을 조절했습니다.</p>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+
+	
+
+
+
+	<section class="py-6  bg-white"> <!--주요 기능 설명하는 곳-->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 mx-auto text-center">
+					<div class="mb-5 text-start"> <!--메인 텍스트 자리-->
+						<h2 class="h1">주요 기능</h2>
+						<p class="text-muted fs-lg"><strong>DAELIM PAR KING</strong>의 주요 기능을 소개합니다.</p>
+					</div>
+					<div class="row text-start">
+						<div class="col-12 col-md-6"> <!--주요 기능 1번 칸-->
+							<div class="d-flex align-items-start py-3">
+								<div class="landing-feature">
+									<i data-feather="sliders"></i> <!--아이콘 이미지-->
+								</div>
+								<div class="flex-grow-1"> <!--기능 1번 자리-->
+									<h4 class="mt-0">데이터 수집</h4>
+									<p class="fs-lg">카메라 모듈을 통해 데이터를 수집합니다.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-6"> <!--주요 기능 2번 칸-->
+							<div class="d-flex align-items-start py-3">
+								<div class="landing-feature">
+									<i class="fa-solid fa-car"></i> <!--아이콘 이미지-->
+								</div>
+								<div class="flex-grow-1">
+									<h4 class="mt-0">차량 유무 감지</h4>
+									<p class="fs-lg">빈 주차 공간과 사용중인 주차 공간을 구분합니다.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-6"> <!--주요 기능 3번 칸-->
+							<div class="d-flex align-items-start py-3">
+								<div class="landing-feature">
+									<i class="fa-solid fa-video"></i> <!--아이콘 이미지-->
+								</div>
+								<div class="flex-grow-1">
+									<h4 class="mt-0">실시간 분석</h4>
+									<p class="fs-lg">동영상 혹은 이미지를 실시간으로 분석합니다.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-6"> <!--주요 기능 4번 칸-->
+							<div class="d-flex align-items-start py-3">
+								<div class="landing-feature">
+									<i data-feather="chrome"></i> <!--아이콘 이미지-->
+								</div>
+								<div class="flex-grow-1">
+									<h4 class="mt-0">온라인 서비스</h4>
+									<p class="fs-lg">주차 공간 현황을 온라인으로 간편하게 확인할 수 있습니다.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<style>
+		.card {
+			transition: transform 0.3s; /* 변형 애니메이션 지속 시간 설정 */
+		}
+
+		.card:hover {
+			transform: translateY(-10px); /* Y 축 방향으로 -10px만큼 이동하여 떠오르는 효과 생성 */
+		}
+	</style>
+	<section class="py-6" style="background: #f7f9fc;"> <!--각종 사진 들어가는 곳-->
+		<div class="container position-relative z-3">
+			<div class="row">
+				<div class="col-md-12 mx-auto text-center">
+					<div class="row">
+						<div class="col-lg-10 mx-auto">
+							<div class="mb-4 text-start">
+								<h2 class="h1 mb-3">Daelim Par King</h2>
+								<p class="text-muted fs-lg">
+									저희 조의 시연 사진, 모형, 작품, 제작 과정을 소개합니다!
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="row" >
+						<div class="col-md-6 py-3">
+							<div class="card">
+								<span>
+									<img src="{% static 'img/main/아키텍쳐.png'%}" class="img-fluid rounded-3" alt="" />
+								</span>
+							</div>
+								<h6 class="pt-3">아키텍쳐</h6>
+						</div>
+						<div class="col-md-3 py-3">
+							<div class="card">
+								<span>
+									<img src="{% static 'img/main/베이스.png'%}" class="img-fluid rounded-3" alt="" />
+								</span>
+							</div>
+							<h6 class="pt-3">객체 탐지 및 주차 여부 체크를 위한 기본 사진</h6>
+						</div>
+						<div class="col-md-3 py-3">
+							<div class="card">
+								<span>
+									<img src="{% static 'img/main/구역.png'%}" class="img-fluid rounded-3" alt="" />
+								</span>
+							</div>
+							<h6 class="pt-3">기본 사진	에 주차 여부를 체크하기 위한 구역 설정</h6>
+						</div>
+						<div class="col-md-3 py-3">
+							<div class="card">
+								<span>
+									<img src="{% static 'img/main/모형.png'%}" class="img-fluid rounded-3" alt="" />
+								</span>
+							</div>
+							<h6 class="pt-3">Daelim Par King 주차장 모형</h6>
+						</div>
+						<div class="col-md-3 py-3">
+							<div class="card">
+								<span>
+									<img src="{% static 'img/main/자동차.png'%}" class="img-fluid rounded-3" alt="" />
+								</span>
+							</div>
+							<h6 class="pt-3">학습에 사용된 자동차 모형 이미지 예시</h6>
+						</div>
+						<div class="col-md-3 py-3">
+							<div class="card">
+								<span>
+									<img src="{% static 'img/main/원본.png'%}" class="img-fluid rounded-3" alt="" />
+								</span>
+							</div>
+							<h6 class="pt-3">주차장 예시</h6>
+						</div>
+						<div class="col-md-3 py-3">
+							<div class="card">
+								<span>
+									<img src="{% static 'img/main/학습본.png'%}" class="img-fluid rounded-3" alt="" />
+								</span>
+							</div>
+							<h6 class="pt-3">학습을 완료한 모델</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-6 bg-white"> <!--각종 사진 들어가는 곳-->
+		<div class="container">
+			<div class="row mb-3">
+				<div class="col-md-12 mx-auto text-center">
+					<div class="row">
+						<div class="col-lg-10 mx-auto">
+							<div class="mb-4 text-start">
+								<h2 class="h1">자주 묻는 질문 혹은 작동 원리</h2>
+								<p class="text-muted fs-lg">원리는 이러합니다.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-lg-10 mx-auto">
+					<div class="accordion" id="accordionFaq">
+						<div class="card border mb-3">
+							<div class="card-header cursor-pointer" id="faqOne" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								<h6 class="mb-0"> <!--질문 1번-->
+									주차장 공간의 유무를 어떻게 구별하나요?
+								</h6>
+							</div>
+							<div id="collapseOne" class="collapse show" aria-labelledby="faqOne" data-bs-parent="#accordionFaq">
+								<div class="card-body py-3"> <!--답변 1번-->
+									주차 공간을 기준으로 차량 객체를 감지하여 구별합니다.
+								</div>
+							</div>
+						</div>
+						<div class="card border mb-3">
+							<div class="card-header cursor-pointer" id="faqTwo" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+								<h6 class="mb-0"> <!--질문 2번-->
+									자동차를 직접 촬영하여 데이터를 수집하나요?
+								</h6>
+							</div>
+							<div id="collapseTwo" class="collapse" aria-labelledby="faqTwo" data-bs-parent="#accordionFaq">
+								<div class="card-body py-3"> <!--답변 2번-->
+									학습한 차량 이미지 데이터를 활용합니다.
+								</div>
+							</div>
+						</div>
+						<div class="card border mb-3">
+							<div class="card-header cursor-pointer" id="faqThree" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+								<h6 class="mb-0"> <!--질문 3번-->
+									구현 환경은 어떻게 되나요?
+								</h6>
+							</div>
+							<div id="collapseThree" class="collapse" aria-labelledby="faqThree" data-bs-parent="#accordionFaq">
+								<div class="card-body py-3"> <!--답변 3번-->
+									HW는 raspberry pi 4를 사용합니다. <br>
+									SW는 웹페이지는 HTML과 CSS를, <br> 데이터 처리엔 Python, OpenCV, tensorflow, pipeline을 사용합니다.
+								</div>
+							</div>
+						</div>
+						<div class="card border mb-3">
+							<div class="card-header cursor-pointer" id="faqFour" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+								<h6 class="mb-0"> <!--질문 4번-->
+									작품의 특징은 무엇인가요?
+								</h6>
+							</div>
+							<div id="collapseFour" class="collapse" aria-labelledby="faqFour" data-bs-parent="#accordionFaq">
+								<div class="card-body py-3"> <!--답변 4번-->
+									DAELIM PAR KING은 카메라 모듈을 통해 실시간으로 데이터를 수집하고, 수집된 데이터를 분석 및 처리하여 정확하게 주차 자리 유무를 파악할 수 있습니다. 또한 웹페이지를 통해 보다 간편한 방법으로 주차장 상태를 실시간으로 확인할 수 있습니다.
+								</div>
+							</div>
+						</div>
+						<div class="card border mb-3">
+							<div class="card-header cursor-pointer" id="faqFive" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+								<h6 class="mb-0"> <!--질문 5번-->
+									작품을 만들게 된 계기는 무엇인가요?
+								</h6>
+							</div>
+							<div id="collapseFive" class="collapse" aria-labelledby="faqFive" data-bs-parent="#accordionFaq">
+								<div class="card-body py-3"> <!--답변 5번-->
+									대림대의 주차 공간은 교수님 주차 공간과 학생 주차 공간으로 분류되어 있는데, 학생들은 비교적 대중교통을 많이 이용하는 편이기에 교수님 주차 공간의 비중이 더 큰 편입니다.<br> 이로 인해 자가용을 이용하는 학생들의 경우 주차 문제로 불편함을 겪는 경우가 많습니다. <br>그래서 저희는 이러한 상황을 DAELIM PAR KING을 통해 해소하고, 학생들과 교수님 모두 편리한 주차 환경을 제공하여 쾌적하고 기분 좋은 출근 및 통학 환경을 조성하고자 합니다.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="landing-footer py-6"> <!--푸터 자리 살려놓은 곳-->
+		<div class="text-center">
+			<a href="https://lumpy-octave-1a8.notion.site/4-fe02037ff9884d15bab4d3f92f4f21e8" target="_blank">
+				<img src="{% static 'img/main/Notion-logo.svg.png'%}" alt="notion" style="height: 30px;">
+			</a>
+		</div>
+	</section>
+	<script src="js/app.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+	<script src="js/include.js" defer></script>
+{% endblock %}

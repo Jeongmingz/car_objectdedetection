@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # New App
+    'main',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -118,6 +122,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+# settings.py
+
+# 정적 파일을 수집할 디렉토리를 지정합니다.
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# 정적 파일의 URL 경로를 지정합니다.
 STATIC_URL = '/static/'
 
 # Default primary key field type
